@@ -1,4 +1,4 @@
-package com.yeamore.clienthello;
+package com.github.conanchen.yeamore.hello;
 
 import com.github.conanchen.yeamore.hello.grpc.HelloGrpc;
 import com.github.conanchen.yeamore.hello.grpc.HelloReply;
