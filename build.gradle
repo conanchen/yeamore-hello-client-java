@@ -1,0 +1,38 @@
+buildscript {
+    ext {
+        GRPC_VERSION = '1.8.0'
+        GSON_VERSION = "2.8.0"
+    }
+    repositories {
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+group = 'com.yeamore'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven { url 'https://jitpack.io' }
+}
+
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
+
+dependencies {
+
+    compile 'com.github.conanchen.yeamore-api:grpc-java:master-SNAPSHOT'
+
+    compile("io.grpc:grpc-services:$GRPC_VERSION")
+    compile "io.grpc:grpc-netty:$GRPC_VERSION"
+    compile "io.grpc:grpc-stub:$GRPC_VERSION"
+    compile "com.google.code.gson:gson:$GSON_VERSION"
+}
