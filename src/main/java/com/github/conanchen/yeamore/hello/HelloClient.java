@@ -88,7 +88,9 @@ public class HelloClient {
                         if (value.getStatus() == HealthCheckResponse.ServingStatus.SERVING) {
                             HelloReply helloReply = helloBlockingStub.sayHello(HelloRequest.newBuilder().setName(name).build());
 
-                            System.out.println(String.format("sayHello got helloReply = [%s]", gson.toJson(helloReply)));
+                            System.out.println(String.format("sayHello got helloReply %d:%s gson=[%s]",
+                                    helloReply.getId(),helloReply.getMessage(),
+                                    gson.toJson(helloReply)));
 
                         } else {
                             System.out.println(String.format("sayHello healthStub.check onNext NOT! ServingStatus.SERVING name = [%s]", name));
