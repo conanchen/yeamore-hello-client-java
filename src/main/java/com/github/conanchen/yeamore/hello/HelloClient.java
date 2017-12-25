@@ -37,6 +37,8 @@ public class HelloClient {
                 if ("q".equals(input)) {
                     System.out.println("Exit!");
                     System.exit(0);
+                }else{
+                    helloClient.sayHello(input);
                 }
 
                 System.out.println("input : " + input);
@@ -88,7 +90,7 @@ public class HelloClient {
                         if (value.getStatus() == HealthCheckResponse.ServingStatus.SERVING) {
                             HelloReply helloReply = helloBlockingStub.sayHello(HelloRequest.newBuilder().setName(name).build());
 
-                            System.out.println(String.format("sayHello got helloReply %d:%s gson=[%s]",
+                            System.out.println(String.format("sayHello got helloReply %d:%s \ngson=[%s]",
                                     helloReply.getId(),helloReply.getMessage(),
                                     gson.toJson(helloReply)));
 
